@@ -16,9 +16,13 @@ export const App = () => {
 
     const [todos, setTodos] = useState();
 
-    useEffect( async () => {
-        const res = listTodos();
-        console.log(res)
+    useEffect(  () => {
+        const load = async () => {
+            const res = await listTodos();
+            console.log(res)
+        }
+
+        load();
     }, [])
 
     return <Card sx={{ margin: '40px auto', maxWidth: 400 }}>
