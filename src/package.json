@@ -1,0 +1,13 @@
+{
+  "name": "@pomp/lambda",
+  "version": "0.1.0",
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "@vscode/sqlite3": "^5.0.8",
+    "knex": "^1.0.5",
+    "pg": "^8.7.3",
+    "uuid": "^8.3.2"
+  }
+}

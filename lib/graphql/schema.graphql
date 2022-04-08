@@ -1,0 +1,19 @@
+type Todo {
+  id: String!
+  status: String!
+  title: String!
+}
+
+input TodoInput {
+  title: String!
+  status: String
+}
+
+type Query {
+  listTodos(status: String): [Todo]
+}
+
+type Mutation {
+  createTodo(todo: TodoInput!): Boolean
+  markTodoAsComplete(id: String!): Boolean
+}

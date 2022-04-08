@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "ESNext",
     "target": "es2019",
     "moduleResolution": "node",
     "declaration": true,
@@ -24,10 +24,6 @@
       "./node_modules/@types"
     ]
   },
-  "include": [
-    "bin",
-    "lib",
-  ],
   "exclude": [
     "node_modules",
     "cdk.out"
