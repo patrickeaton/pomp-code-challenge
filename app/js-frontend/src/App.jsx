@@ -14,37 +14,44 @@ import { listTodos } from './graphql';
 
 export const App = () => {
 
-    const [todos, setTodos] = useState();
+    const [todos, setTodos] = useState([]);
 
     useEffect(  () => {
         const load = async () => {
             const res = await listTodos();
-            console.log(res)
+            setTodos(res.data.listTodos);
+            console.log(todos);
         }
-
+        
         load();
-    }, [])
+    }, []);
+
+    //TODO: Implement markAsComplete Function from ./graphql then
+    // refresh the list from the server
+    const handleComplete = async (id) => {
+
+    }
+
+    // TODO: Open Add Dialog
+    // See: https://mui.com/components/dialogs/
+    const handleAddDialog = () => {
+
+    }
 
     return <Card sx={{ margin: '40px auto', maxWidth: 400 }}>
         <CardHeader title={'todo'} />
         <CardContent>
             <List>
-                <ListItem disablePadding>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <Checkbox />
-                        </ListItemIcon>
-                        <ListItemText primary="Inbox" />
-                    </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <Checkbox />
-                        </ListItemIcon>
-                        <ListItemText primary="Drafts" />
-                    </ListItemButton>
-                </ListItem>
+                {todos.map( ({title, status, id}) =>
+                    <ListItem disablePadding>
+                        <ListItemButton onClick={() => handleComplete(id)}>
+                            <ListItemIcon>
+                                <Checkbox checked={status === 'complete'}/>
+                            </ListItemIcon>
+                            <ListItemText primary={title} />
+                        </ListItemButton>
+                    </ListItem>
+                )}
             </List>
         </CardContent>
     </Card>

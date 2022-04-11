@@ -91,7 +91,6 @@ export class PompCodeChallengeStack extends Stack {
       fieldName: 'markTodoAsComplete'
     });
 
-
     // 👇 create a policy statement
     const policy = new iam.PolicyStatement({
       actions: ['secretsmanager:*'],

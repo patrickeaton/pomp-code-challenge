@@ -1,3 +1,0 @@
- mutation createTodo($todo: TodoInput!) {
-  createTodo(todo: $todo)
-}

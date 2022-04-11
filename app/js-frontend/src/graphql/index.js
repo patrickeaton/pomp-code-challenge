@@ -1,5 +1,4 @@
 import axios from 'axios';
-import listTodosQuery from './list-todos.graphql'
 
 const client = (query, variables) =>
   axios({
@@ -22,3 +21,11 @@ listTodos(status: $status) {
         status
   }
 }`, {});
+
+export const createTodo = (todo) => client(`mutation createTodo($todo: TodoInput!) {
+  createTodo(todo: $todo)
+}`, { todo });
+
+export const markTodoAsComplete = (id) => client(`mutation markAsComplete($id: String!) {
+  markAsComplete(id: $id)
+}`, { id });

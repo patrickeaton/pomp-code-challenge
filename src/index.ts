@@ -7,14 +7,13 @@ module.exports.handler = async ({
                            info: { fieldName }}:
                            { arguments: any, info: {fieldName: string}}
 ) => {
-  console.log('in here', fieldName, data);
 
   switch (fieldName) {
     case 'createTodo':
       return createTodo(data);
     case 'listTodos':
       return listTodos(data);
-    case 'markAsComplete':
+    case 'markTodoAsComplete':
       return markAsComplete(data);
   }
 
